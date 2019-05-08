@@ -311,7 +311,8 @@ defmodule Sentry.ClientTest do
           {:ok, task} =
             Sentry.capture_exception(
               e,
-              stacktrace: __STACKTRACE__
+              stacktrace: __STACKTRACE__,
+              result: :async
             )
 
           assert_receive "API called"
