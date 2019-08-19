@@ -14,7 +14,7 @@ defmodule Mix.Tasks.Sentry.SendTestEvent do
 
     Application.ensure_all_started(:sentry)
 
-    Sentry.Client.get_dsn()
+    Sentry.Config.client().get_dsn()
     |> print_environment_info()
 
     maybe_send_event()
@@ -27,7 +27,6 @@ defmodule Mix.Tasks.Sentry.SendTestEvent do
     Mix.shell().info("secret_key: #{secret_key}")
     Mix.shell().info("included_environments: #{inspect(included_environments())}")
     Mix.shell().info("current environment_name: #{inspect(Config.environment_name())}")
-    Mix.shell().info("hackney_opts: #{inspect(Config.hackney_opts())}\n")
   end
 
   defp included_environments do

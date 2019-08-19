@@ -95,12 +95,7 @@ defmodule Sentry do
 
   def start(_type, _opts) do
     children = [
-      supervisor(Task.Supervisor, [[name: Sentry.TaskSupervisor]]),
-      :hackney_pool.child_spec(
-        Sentry.Client.hackney_pool_name(),
-        timeout: Config.hackney_timeout(),
-        max_connections: Config.max_hackney_connections()
-      )
+      supervisor(Task.Supervisor, [[name: Sentry.TaskSupervisor]])
     ]
 
     validate_json_config!()

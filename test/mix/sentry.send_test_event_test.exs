@@ -16,7 +16,6 @@ defmodule Mix.Tasks.Sentry.SendTestEventTest do
            secret_key: secret
            included_environments: []
            current environment_name: :test
-           hackney_opts: [recv_timeout: 50]
 
            :test is not in [] so no test event will be sent
            """
@@ -48,7 +47,6 @@ defmodule Mix.Tasks.Sentry.SendTestEventTest do
            secret_key: secret
            included_environments: [:test]
            current environment_name: :test
-           hackney_opts: [recv_timeout: 50]
 
            Sending test event...
            Test event sent!  Event ID: 340
@@ -75,7 +73,6 @@ defmodule Mix.Tasks.Sentry.SendTestEventTest do
                     secret_key: secret
                     included_environments: [:test]
                     current environment_name: :test
-                    hackney_opts: [recv_timeout: 50]
 
                     Sending test event...
                     Error sending event!
